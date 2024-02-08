@@ -1,0 +1,48 @@
+{% extends 'beeApp/base.html' %}
+
+
+{% block content %}
+
+    <div class="card">
+        
+        <div class="card-body">
+
+            <strong>
+
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                
+                {{record.surname|upper}}
+                {{record.first_name}} {{record.last_name}}
+
+    
+            </strong>
+    
+            <hr>
+
+            <p><strong>ID: </strong>{{record.id}}</p>
+            <p><strong>Email: </strong>{{record.email}}</p>
+            <p><strong>Address: </strong>{{record.address}}</p>
+            <p><strong>Phone_No: </strong>{{record.phone_number}}</p>
+            <p><strong>State of Origin: </strong>{{record.state_of_origin}}</p>
+            <p><strong>DOB: </strong>{{record.dob}}</p>
+            <p><strong>Qualification: </strong>{{record.qualification}}</p>
+            <p><strong>Creation Date: </strong>{{record.creation_date}}</p>
+            
+        </div>
+    </div>
+
+    <br>
+
+    <a href="{% url 'dashboard' %}" class="btn btn-secondary"> Return &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i></a>
+
+    &nbsp;
+
+    <a href="{% url 'update-record' record.id %}" class="btn btn-info"> Update record &nbsp; <i class="fa fa-plus" aria-hidden="true"></i>
+    </a>
+
+    &nbsp;
+
+    <a href="{% url 'delete-record' record.id %}" class="btn btn-danger"> Delete &nbsp; <i class="fa fa-trash" aria-hidden="true"></i></a>
+
+
+{% endblock %}

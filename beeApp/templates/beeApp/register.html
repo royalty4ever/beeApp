@@ -1,0 +1,54 @@
+{% extends 'beeApp/base.html' %}
+
+<!-- To add crispy forms tag -->
+{% load crispy_forms_tags %}
+
+
+{% block content %}
+    <body>
+
+        <br>
+        
+        <div class="container bg-light shadow-md p-5 form-layout">
+            <div class="text-center">
+                <h3> Create your Account </h3>
+    
+                <h6> ...and Spell your Way to Godliness! </h6>
+            </div>
+    
+            <hr>
+            <br>
+    
+            <form method="POST" autocomplete="off">
+    
+                {% csrf_token %}
+    
+                {{form.username|as_crispy_field}}
+    
+                <br>
+
+                {{form.password1|as_crispy_field}}
+
+                <br>
+
+                {{form.password2|as_crispy_field}}
+
+                <br>
+
+                <button type="submit" class="btn btn-primary w-100 btn-block p-2"> 
+                    Create Account &nbsp; <i class="fa fa-user" aria-hidden="true"></i> 
+                </button>
+            </form>
+    
+            <br>
+            <div class="text-center">
+                <p> Already have an Account? <a href="{% url 'login' %}"> Login </a> </p> 
+            </div>
+        </div>
+    
+        <br>
+
+    </body>
+    
+
+{% endblock %}

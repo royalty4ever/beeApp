@@ -1,0 +1,113 @@
+/* Count Down CSS styling */
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* min-height: 20vh; */
+    background: #6e6a2c;
+}
+
+#timer{
+    display: flex;
+     
+    /* gap: 5px; */
+}
+
+#timer .circle{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer .circle svg{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    transform: rotate(275deg);
+}
+
+#timer .circle svg circle{
+    stroke-linecap: round;
+    width: 100%;
+    height: 100%;
+    fill: transparent;
+    stroke-width: 4;
+    stroke: #282828;
+    stroke-linecap: round;
+    transform: translate(5px, 5px);
+}
+
+#timer .circle svg circle:nth-child(2){
+    stroke: var(--clr);
+    stroke-dasharray: 440;
+    stroke-dashoffset: 440;
+}
+
+#timer div{
+    position: absolute;
+    text-align: center;
+    font-weight: 500;
+    color: #fff;
+    font-size: 1.2em;
+   
+    transform: translateY(-10px);
+}
+
+/* controls the movement of hour, min and seconds in the svg circle */
+#timer div span{
+    position: absolute;
+    transform: translateX(-50%) translateY(-1px);
+    font-size: 0.35em;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+#timer .dots{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    z-index: 1000;
+}
+
+#time .dots::before{
+    content: '';
+    position:absolute;
+    top: -3px;
+    width: 15px;
+    height: 15px;
+    background: var(--clr);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--clr),
+    0 0 60px var(--clr);
+}
+
+.newYear{
+    font-size: 8em;
+    color: #fff;
+    line-height: 0.6em;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+}
+
+.newYear span{
+    font-size: 0.5em;
+    font-weight: 300;
+}

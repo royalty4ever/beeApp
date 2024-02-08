@@ -1,0 +1,80 @@
+{% extends 'beeApp/base.html' %}
+
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <body>
+
+        <div class="container bg-light shadow-md ">
+            <div class="text-center">
+                <h5> Welcome to the dashboard page! {{user}} </h5>
+            </div>
+            <hr>
+            <br>
+        </div>
+        <br>
+    
+        <a class="btn btn-outline-primary btn-sm" href="{% url 'create_record' %}">
+
+            Create a new record &nbsp; <i class="fa fa-plus-circle" aria-hidden="true"></i>
+
+        </a>
+
+        <hr>
+<!-- To create a table with bootstrap functionality -->
+
+        <table class="table table-hover table-bordered">
+
+            <thead class="table-dark text-center">
+
+                <tr>
+
+                    <th scope="col"> ID </th>
+                    <th scope="col"> Fullname </th>
+                    <th scope="col"> Email </th>
+                    <th scope="col"> Address </th>
+                    <th scope="col"> Phone No </th>
+                    <th scope="col"> State of Origin </th>
+                    <th scope="col"> DOB </th>
+                    <th scope="col"> Qualification </th>
+                    <th scope="col"> Date Joined </th>
+
+                    <th scope="col"> View </th>
+                    
+                </tr>
+
+            </thead>
+
+            <tbody>
+            
+            {% if records %}
+
+                {% for record in records %}
+                <tr>
+
+                    <td>{{record.id}}</td>
+                    <td>{{record.surname}} {{record.first_name}} {{record.last_name}}</td>
+                    <td>{{record.email}}</td>
+                    <td>{{record.address}}</td>
+                    <td>{{record.phone_number}}</td>
+                    <td>{{record.state_of_origin}}</td>
+                    <td>{{record.dob}}</td>
+                    <td>{{record.qualification}}</td>
+                    <td>{{record.creation_date}}</td>
+
+                    <td><a class="btn btn-success btn-sm" href="{% url 'record' record.id %}"> <i class="fa fa-eye" aria-hidden="true"></i></a></td>
+
+                </tr>
+
+                {% endfor %}
+
+            {% endif %}
+            </tbody>
+
+        </table>
+
+    </body>
+
+{% endblock %}
